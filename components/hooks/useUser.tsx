@@ -4,9 +4,14 @@ const useUser = () => {
     const [user, setUser] = useState("");
 
     useEffect(() => {
-        const temp = "user" + Date.now();
-        setUser(temp);
-        localStorage.setItem("user", temp);
+        const u = localStorage.getItem("user");
+        if (u) {
+            setUser(u);
+        } else {
+            const temp = "user" + new Date().getMilliseconds();
+            setUser(temp);
+            localStorage.setItem("user", temp);
+        }
     }, []);
 
     return user;

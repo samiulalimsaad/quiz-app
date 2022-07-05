@@ -21,7 +21,7 @@ const Result = () => {
                     </h2>
                     <div className="flex items-center justify-between mt-4">
                         <div className="justify-end w-full card-actions">
-                            <Link href="/" passHref>
+                            <Link href="/quiz" passHref>
                                 <a className="w-full btn btn-success">
                                     Start Quiz Again
                                 </a>
