@@ -1,17 +1,16 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import useUser from "../components/hooks/useUser";
 
 const Result = () => {
+    const user = useUser();
     const router = useRouter();
     return (
         <div className="grid w-2/3 h-screen mx-auto place-items-center">
             <div className="shadow-xl w-96 card bg-base-100">
                 <div className="card-body">
                     <h2 className="card-title">
-                        User:{" "}
-                        <span className="text-slate-500">
-                            {localStorage.getItem("user")}
-                        </span>
+                        User: <span className="text-slate-500">{user}</span>
                     </h2>
                     <h2 className="card-title">
                         Score:{" "}

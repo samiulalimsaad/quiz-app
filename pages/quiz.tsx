@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import useUser from "../components/hooks/useUser";
 
 interface quizInterface {
     category: string;
@@ -15,6 +16,7 @@ const arrayShuffle = (arr: [string], str: string) =>
     [str, ...arr].sort(() => Math.random() - 0.5);
 
 const Quiz = () => {
+    const user = useUser();
     const [allQuiz, setAllQuiz] = useState<quizInterface[]>([]);
     const [currentQuiz, setCurrentQuiz] = useState<quizInterface>();
     const [index, setIndex] = useState(0);
@@ -146,10 +148,7 @@ const Quiz = () => {
                             {index + 1}/{allQuiz?.length}
                         </div>
                         <h4 className="card-title">
-                            User:{" "}
-                            <span className="text-slate-500">
-                                {localStorage.getItem("user")}
-                            </span>
+                            User: <span className="text-slate-500">{user}</span>
                         </h4>
                         <div className="justify-end card-actions">
                             <button
